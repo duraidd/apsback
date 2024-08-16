@@ -38,11 +38,12 @@ router.post('/send', (req, res) => {
         if (error) {
             console.log(error);
         } else {
+            res.json({status:200,message:"Your Details has Received"});
             console.log('Email sent: ' + info.response);
         }
     });
 
-    res.json({status:200,message:"Your Details has Received"});
+    
 
 
 });
