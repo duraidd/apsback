@@ -5,7 +5,7 @@ const api = require('./api');
 
 const app = express();
 
-var whitelist = ['https://apssite.vercel.app/']
+var whitelist = ['https://apssite.vercel.app/','https://apssite.vercel.app']
 var corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1) {
