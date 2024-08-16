@@ -20,10 +20,6 @@ router.post('/send', (req, res) => {
     var mailOptions = {
         from: 'contact@apstechnologies.co.in',
         to: 'hr@apstechnologies.co.in',
-
-        from: 'duraiessakimuthu@gmail.com',
-        to: 'shunmugavelsv05@gmail.com',
-
         subject: subject,
         html: `
       <html lang="en">    
