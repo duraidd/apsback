@@ -31,6 +31,7 @@ router.post('/send', (req, res) => {
           <p>
             ${message}
           </p>
+          <img src="https://apssite.vercel.app/static/media/Logo.5a71d3cd837e49a76adc.jpg" height="100px" width="200px" />
         </body>
       </html>
     `
