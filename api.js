@@ -1,27 +1,31 @@
 const express = require('express')
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 
 router.post('/send', (req, res) => {
-    const { name, email, subject, message } = req.body;
+  const { name, email, subject, message } = req.body;
 
-    var transporter = nodemailer.createTransport({
-      host: 'smtp.hostinger.com',
-      port: 587,
-      secure: false, // or 'STARTTLS'
-      auth: {
-        user: 'contact@apstechnologies.co.in',
-        pass: 'T@h4Z85NqQ55#'
-      }
-    });
+  
 
-    var mailOptions = {
-        from: 'contact@apstechnologies.co.in',
-        to: 'hr@apstechnologies.co.in',
-        subject: subject,
-        html: `
+  var transporter = nodemailer.createTransport({
+    host: 'smtp.hostinger.com',
+    port: 587,
+    secure: false, // or 'STARTTLS'
+    auth: {
+      user: process.env.USER,
+      pass: process.env.PASS
+    }
+  });
+
+  var mailOptions = {
+    from: 'contact@apstechnologies.co.in',
+    to: 'hr@apstechnologies.co.in',
+    subject: subject,
+    html: `
       <html lang="en">    
         <body>
           <h2>
@@ -35,18 +39,18 @@ router.post('/send', (req, res) => {
         </body>
       </html>
     `
-    };
+  };
 
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            res.json({status:200,message:"Your Details has Received"});
-            console.log('Email sent: ' + info.response);
-        }
-    });
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json({ status: 200, message: "Your Details has Received" });
+      console.log('Email sent: ' + info.response);
+    }
+  });
 
-    
+
 
 
 });
