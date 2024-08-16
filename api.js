@@ -8,16 +8,18 @@ router.post('/send', (req, res) => {
     const { name, email, subject, message } = req.body;
 
     var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'duraiessakimuthu@gmail.com',
-            pass: 'flhy mcwk cnqr xhuq'
-        }
+      host: 'smtp.hostinger.com',
+      port: 587,
+      secure: false, // or 'STARTTLS'
+      auth: {
+        user: 'contact@apstechnologies.co.in',
+        pass: 'T@h4Z85NqQ55#'
+      }
     });
 
     var mailOptions = {
-        from: 'duraiessakimuthu@gmail.com',
-        to: 'manoj852407@gmail.com',
+        from: 'contact@apstechnologies.co.in',
+        to: 'hr@apstechnologies.co.in',
         subject: subject,
         html: `
       <html lang="en">    
