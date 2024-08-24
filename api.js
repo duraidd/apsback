@@ -10,13 +10,13 @@ router.post('/send', (req, res) => {
   const { name, email, subject, message } = req.body;
 
 
-  let emailId = ['hr@apstechnologies.co.in','admin@apstechnologies.co.in']
+  let emailId = ['hr@apstechnologies.co.in', 'admin@apstechnologies.co.in']
 
   let c = 0;
 
-  emailId.forEach((data)=>{
+  emailId.forEach((data) => {
 
-    c=c+1;
+    c = c + 1;
 
     var transporter = nodemailer.createTransport({
       host: 'smtp.hostinger.com',
@@ -27,7 +27,7 @@ router.post('/send', (req, res) => {
         pass: process.env.PASS
       }
     });
-  
+
     var mailOptions = {
       from: 'contact@apstechnologies.co.in',
       to: data,
@@ -43,11 +43,15 @@ router.post('/send', (req, res) => {
               ${message}
             </p>
             <img src="https://apssite.vercel.app/static/media/Logo.5a71d3cd837e49a76adc.jpg" height="100px" width="200px" />
+            <p>23/c, first floor,</p>
+          <p>Raja Rajeshwari Nagar,</p>
+          <p>south Street, NGO B colony,</p>
+          <p>Tirunelveli 627007</p>
           </body>
         </html>
       `
     };
-  
+
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error);
@@ -56,16 +60,15 @@ router.post('/send', (req, res) => {
 
 
 
-        if(c=== emailId.length){
+        if (c === emailId.length) {
           res.json({ status: 200, message: "Your Details has Received" });
           console.log('Email sent: ' + info.response);
         }
 
 
-       
+
       }
     });
-
   })
 
 });
