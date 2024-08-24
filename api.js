@@ -66,32 +66,6 @@ router.post('/send', (req, res) => {
       }
     });
 
-  var mailOptions = {
-    from: 'contact@apstechnologies.co.in',
-    to: 'hr@apstechnologies.co.in',
-    subject: subject,
-    html: `
-      <html lang="en">    
-        <body>
-          <h2>
-            Name : ${name}            
-          </h2>
-          <h3>Email: ${email}</h3>
-          <p>
-            ${message}
-          </p>
-          <img src="https://apssite.vercel.app/static/media/Logo.5a71d3cd837e49a76adc.jpg" height="100px" width="200px" />
-          <p>23/c, first floor,</p>
-          <p>Raja Rajeshwari Nagar,</p>
-          <p>south Street, NGO B colony,</p>
-          <p>Tirunelveli 627007</p>
-        </body>
-      </html>
-    `
-  };
-
-
-
   })
 
 });
