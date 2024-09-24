@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 
-var whitelist = ['https://apssite.vercel.app/','https://apssite.vercel.app','http://localhost:3000']
+var whitelist = ['https://apssite.vercel.app/','https://apssite.vercel.app','http://localhost:3000','https://apsengineering.vercel.app/','https://apsengineering.vercel.app']
 var corsOptions = {
     origin: function (origin, callback) {
 
